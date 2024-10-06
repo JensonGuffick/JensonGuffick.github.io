@@ -1,13 +1,21 @@
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+const encodedUsername = "bHBibWVtYmVy";
+const encodedPassword = "VHdvRml2ZVR3bw==";
 
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const validUsername = "lpbmember";
-  const validPassword = "TwoFiveTwo";
+const validUsername = atob(encodedUsername);
+const validPassword = atob(encodedPassword);
 
-  if (username === validUsername && password === validPassword) {
-    document.getElementById("message").textContent = "Login successful!";
-  } else {
-    document.getElementById("message").textContent = "Invalid login. Please try again.";
-  }
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const inputUsername = document.querySelector('input[id="username"]').value.toLowerCase();
+    const inputPassword = document.querySelector('input[id="password"]').value;
+    const messageElement = document.getElementById('message');
+
+
+    if (inputUsername === validUsername && inputPassword === validPassword) {
+        window.location.href = '/CommitteeMinutes.html';
+    } else {
+        messageElement.innerHTML = "Incorrect username or password.";
+    }
+
 });

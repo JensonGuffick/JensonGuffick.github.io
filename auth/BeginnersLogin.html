@@ -1,14 +1,14 @@
 <html>
 <head>
+  <link rel="shortcut icon" type="image/x-icon" href="Images/1.HOME/2.MAIN_IMAGES/LPB.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enter Password</title>
-  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-  <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 </head>
 <body>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffcc00;
+      background-color: #121212;
       font-size: 2em;
       text-align: center;
       display: grid;
@@ -18,13 +18,36 @@
       text-align: center;
       border: 1px solid black;
       border-radius: 50px;
-      width: 300px;
+      width: 280px;
       font-size: 1em;
       box-shadow: 0 0 10px #000000;
     }
+    .input-window {
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #121212;
+			z-index: 1000;
+			}
+      .input-window form {
+			position: absolute;
+      background-color: #f8c301;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+			border-style: solid;
+			border-radius: 30px;
+			}
   </style>
-  <div style="text-align:center">
+  <div class="input-window" style="text-align:center">
     <form id="loginForm">
+      <b>Login to the Beginners page.</b>
+      <br>
       <br>
       <input type="text" id="username" placeholder="Username" required>
       <input type="password" id="password" placeholder="Password" required>

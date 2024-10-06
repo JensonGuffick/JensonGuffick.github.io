@@ -1,23 +1,21 @@
-  document.getElementById("loginForm").addEventListener("submit", function(event) {
+const encodedUsername = "bHBiYmVnaW5uZXI=";
+const encodedPassword = "U2hvb3RGb3JHb2xk";
+
+const validUsername = atob(encodedUsername);
+const validPassword = atob(encodedPassword);
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    const inputUsername = document.querySelector('input[id="username"]').value;
+    const inputPassword = document.querySelector('input[id="password"]').value;
+    const messageElement = document.getElementById('message');
 
-    // Username and password loaded from server-side PHP and passed to JS
-    var correctUsername = "<?php echo $correctUsername; ?>";
-    var correctPassword = "<?php echo $correctPassword; ?>";
-    console.log('got password');
 
-    if (username === correctUsername && password === correctPassword) {
-      document.getElementById("message").innerText = "Login successful!";
-      setTimeout(function() {
-        window.location.reload();
-      }, 1000);
+    if (inputUsername === validUsername && inputPassword === validPassword) {
+        window.location.href = '/index.html';
     } else {
-      document.getElementById("message").innerText = "Invalid credentials, please try again.";
-      setTimeout(function() {
-        window.location.reload();
-      }, 1000);
+        messageElement.innerHTML = "Incorrect username or password.";
     }
-  });
+
+});
