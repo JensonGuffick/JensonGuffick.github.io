@@ -13,7 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 
     if (inputUsername === validUsername && inputPassword === validPassword) {
-        window.location.href = '/index.html';
+        window.location.href = '../index.html';
     } else {
         messageElement.innerHTML = "Incorrect username or password.";
     }
