@@ -13,11 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 
     if (inputUsername === validUsername && inputPassword === validPassword) {
-        if (window.location.hostname === "127.0.0.1") {
-            window.location.href = '/Member/CommitteeMinutes.html';
-        } else {
-            window.location.href = '/helstonarchery/member/committeeMinutes.html';
-        }
+        window.location.href = '/helstonarchery/member/committeeMinutes.html';
     } else {
         messageElement.innerHTML = "Incorrect username or password.";
     }
