@@ -1,5 +1,5 @@
 const encodedUsername = "bHBiYmVnaW5uZXI=";
-const encodedPassword = "U2hvb3RGb3JHb2xk";
+const encodedPassword = "c2hvb3Rmb3Jnb2xk";
 
 const validUsername = atob(encodedUsername);
 const validPassword = atob(encodedPassword);
@@ -13,7 +13,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 
     if (inputUsername === validUsername && inputPassword === validPassword) {
-        window.location.href = '/helstonarchery/index.html';
+        window.location.href = '/helstonarchery/BeginnerRedirect.html';
     } else {
         messageElement.innerHTML = "Incorrect username or password.";
     }

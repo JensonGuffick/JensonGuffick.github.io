@@ -1,59 +1,215 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="Images/1.HOME/2.MAIN_IMAGES/LPB.png">
+		<link rel="shortcut icon" type="image/x-icon" href="Images/Nav/LPB.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Lizard Peninsula Bowmen</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<style>
 			body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			  display: none;
+			  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			  margin: 0;
+			  padding: 0;
+			  text-align: center;
+			  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			  transition: background-color 1s, color 0.5s;
 			}
+				
+			.headertext {
+			  font-size: 3em;
+			  font-weight: bold;
+			  margin: 20px;
+			}
+		
+			.Header {
+			  border-radius: 20px;
+			  padding: 10px;
+			}
+		
+			.Buttons {
+			  background-color: #e6e6e6;
+			  border-radius: 20px;
+			}
+		
 			.container {
-			width: 100%;
-			text-align: center;
+			  margin: auto;
+			  padding: 20px;
 			}
+		
 			.nav-buttons {
-			width: 149px;
-			height: 49px;
-			background-color: black;
-			border-radius: 10px;
-			border: solid;
-			border-color: #f8c301;
-			border-width: 2px;
-			color: white;
+			  width: 149px;
+			  height: 49px;
+			  background-color: black;
+			  color: white;
+			  border: 2px solid #f8c301;
+			  border-radius: 10px;
+			  margin: 10px;
+			  cursor: pointer;
+			  font-weight: bold;
+			  
 			}
+		
 			.nav-buttons:hover {
-			background-color: #f8c301;
-			border-color: black;
+			  background-color: #f8c301;
+			  border-color: black;
 			}
+		
+			.committee-title {
+			  font-size: 2em;
+			  margin: 40px 0 20px;
+			  font-weight: bold;
+			}
+		
+			table {
+			  width: 100%;
+			  max-width: 900px;
+			  margin: auto;
+			  font-size: 1em;
+			}
+		
+			td {
+			  border: 2px solid #666666;
+			  padding: 20px;
+			  text-align: center;
+			  vertical-align: middle;
+			  font-size: 1.2em;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo {
+			  width: 1080px;
+			  height: 1920px;
+			  max-width: 150px;
+			  height: auto;
+			  border: 1px solid #000;
+			  border-radius: 12px;
+			  transition: max-width 0.3s ease;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo:hover {
+			  max-width: 180px;
+			}
+		
+			.contact-img {
+			  width: 250px;
+			  height: 30px;
+			}
+		
 			@media (max-width: 768px) {
-			.homeimg {
-			width: 100%;
+			  .headertext {
+				font-size: 2em;
+			  }
+		
+			  .nav-buttons {
+				width: 45%;
+				margin: 5px 0;
+			  }
+		
+			  td {
+				display: block;
+				width: 90%;
+				text-align: center;
+			  }
 			}
+			
+			.contact-button {
+			  background-color: #000000;
+			  color: #FFFFFF;
+			  border: #f8c301;
+			  border-radius: 20px;
+			  height: 40px;
+			  width: 100%;
+			  transition: background-color 0.3s ease;
+			}
+		
+			.contact-button:hover {
+			  background-color: #ffc800;
+			  color: #000000;
+			  cursor: pointer;
+			}
+		</style>
+		<style>
+			.darkmode-btn {
+			  position: fixed;
+			  top: 30px;
+			  right: 20px;
+			  z-index: 2;
+			  background-color: transparent;
+			  border: none;
+			  cursor: pointer;
+			  padding: 0;
+			  width: 50px;
+			  height: 50px;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			}
+		
+			.darkmode-img {
+			  width: 50px;
+			  height: 50px;
+			  transition: opacity 0.5s ease;
+			  position: absolute;
+			}
+		
+			body.dark-mode {
+			  background-color: #121212;
+			  color: white;
+			}
+				
+			#darkmode-icon {
+			  opacity: 1;
+			}
+				
+			.dark-mode #darkmode-icon {
+			  opacity: 0;
+			}
+		
+			#lightmode-icon {
+				opacity: 0;
+			}
+		
+			.dark-mode #lightmode-icon {
+				opacity: 1;
+			}
+		
+			body.dark-mode .Buttons {
+				background-color: #313131;
+			}
+		
+			.committeeTable.dark-mode {
+			  background-color: black;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<div class="nav">
-				<a style="font-size: 3em;"><b>LIZARD PENINSULA BOWMEN</b></a>
-				<br>
-				<a href="auth/MembersLogin.html"><button class="nav-buttons"><b>Members Sign In</b></button></a>
-				<a href="auth/BeginnersLogin.html"><button class="nav-buttons"><b>Beginners Sign In</b></button></a>
-				<br>
-				<br>
-				<a href="Scoresheets.html"><button class="nav-buttons"><b>Scoresheets</b></button></a>
-				<a href="Calendar.html"><button class="nav-buttons"><b>Calendar</b></button></a>
-				<a href="Facilities.html"><button class="nav-buttons"><b>Facilities</button></a>
-				<a href="Events.html"><button class="nav-buttons"><b>Events</b></button></a>
-				<a href="ContactUs.html"><button class="nav-buttons"><b>Contact Us</b></button></a>
-				<a href="PrivacyPolicy.html"><button class="nav-buttons"><b>Privacy Policy</b></button></a>
+			<div class="Header">
+				<div class="headertext">LIZARD PENINSULA BOWMEN</div>
+				<div class="Buttons">
+				  <a href="auth/MembersLogin.html"><button class="nav-buttons">Members Sign In</button></a>
+				  <a href="auth/BeginnersLogin.html"><button class="nav-buttons">Beginners Sign In</button></a>
+				  <br>
+				  <a href="index.html"><button class="nav-buttons">Home</button></a>
+				  <a href="Scoresheets.html"><button class="nav-buttons">Scoresheets</button></a>
+				  <a href="Calendar.html"><button class="nav-buttons">Calendar</button></a>
+				  <a href="Facilities.html"><button class="nav-buttons">Facilities</button></a>
+				  <a href="Events.html"><button class="nav-buttons">Events</button></a>
+				  <a href="ContactUs.html"><button class="nav-buttons">Contact Us</button></a>
+				  <a href="PrivacyPolicy.html"><button class="nav-buttons">Privacy Policy</button></a>
+				  <button class="darkmode-btn" id="dark-mode-toggle">
+					<img src="/Images/Nav/BDark.png" class="darkmode-img" id="darkmode-icon" alt="Dark Mode">
+					<img src="/Images/Nav/BLight.png" class="darkmode-img" id="lightmode-icon" alt="Light Mode">
+				</button>
+				</div>
 			</div>
-      <br>
-			<img class="homeimg" src="IMAGES/1.HOME/2.MAIN_IMAGES/Home_Image_Transparent.png">
+      		<br>
+			<img class="homeimg" src="Images/Nav/Home_Image.jpg">
 			<div class="other-links">
 			</div>
 		</div>
 	</body>
+	<script src="Scripts/Darkmode.js"></script>
 </html>

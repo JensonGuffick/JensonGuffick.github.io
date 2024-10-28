@@ -1,167 +1,253 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta name="verify-v1" content="U46CVIu+tIYqGHrFX+7OltwLuQJdAzP+KCdp1KOUuTs=" />
-		<title>Events</title>
+		<link rel="shortcut icon" type="image/x-icon" href="Images/Nav/LPB.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lizard Peninsula Bowmen</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<style>
+			body {
+			  display: none;
+			  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			  margin: 0;
+			  padding: 0;
+			  text-align: center;
+			  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			  transition: background-color 1s, color 0.5s;
+			}
+				
+			.headertext {
+			  font-size: 3em;
+			  font-weight: bold;
+			  margin: 20px;
+			}
+		
+			.Header {
+			  border-radius: 20px;
+			  padding: 10px;
+			}
+		
+			.Buttons {
+			  background-color: #e6e6e6;
+			  border-radius: 20px;
+			}
+		
+			.container {
+			  margin: auto;
+			  padding: 20px;
+			}
+		
+			.nav-buttons {
+			  width: 149px;
+			  height: 49px;
+			  background-color: black;
+			  color: white;
+			  border: 2px solid #f8c301;
+			  border-radius: 10px;
+			  margin: 10px;
+			  cursor: pointer;
+			  font-weight: bold;
+			  
+			}
+		
+			.nav-buttons:hover {
+			  background-color: #f8c301;
+			  border-color: black;
+			}
+		
+			.committee-title {
+			  font-size: 2em;
+			  margin: 40px 0 20px;
+			  font-weight: bold;
+			}
+		
+			table {
+			  width: 100%;
+			  max-width: 900px;
+			  margin: auto;
+			  font-size: 1em;
+			}
+		
+			td {
+			  border: 2px solid #666666;
+			  padding: 20px;
+			  text-align: center;
+			  vertical-align: middle;
+			  font-size: 1.2em;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo {
+			  width: 1080px;
+			  height: 1920px;
+			  max-width: 150px;
+			  height: auto;
+			  border: 1px solid #000;
+			  border-radius: 12px;
+			  transition: max-width 0.3s ease;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo:hover {
+			  max-width: 180px;
+			}
+		
+			.contact-img {
+			  width: 250px;
+			  height: 30px;
+			}
+		
+			@media (max-width: 768px) {
+			  .headertext {
+				font-size: 2em;
+			  }
+		
+			  .nav-buttons {
+				width: 45%;
+				margin: 5px 0;
+			  }
+		
+			  td {
+				display: block;
+				width: 90%;
+				text-align: center;
+			  }
+			}
+			
+			.contact-button {
+			  background-color: #000000;
+			  color: #FFFFFF;
+			  border: #f8c301;
+			  border-radius: 20px;
+			  height: 40px;
+			  width: 100%;
+			  transition: background-color 0.3s ease;
+			}
+		
+			.contact-button:hover {
+			  background-color: #ffc800;
+			  color: #000000;
+			  cursor: pointer;
+			}
+		</style>
+		<style>
+			.darkmode-btn {
+			  position: fixed;
+			  top: 30px;
+			  right: 20px;
+			  z-index: 2;
+			  background-color: transparent;
+			  border: none;
+			  cursor: pointer;
+			  padding: 0;
+			  width: 50px;
+			  height: 50px;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			}
+		
+			.darkmode-img {
+			  width: 50px;
+			  height: 50px;
+			  transition: opacity 0.5s ease;
+			  position: absolute;
+			}
+		
+			body.dark-mode {
+			  background-color: #121212;
+			  color: white;
+			}
+				
+			#darkmode-icon {
+			  opacity: 1;
+			}
+				
+			.dark-mode #darkmode-icon {
+			  opacity: 0;
+			}
+		
+			#lightmode-icon {
+				opacity: 0;
+			}
+		
+			.dark-mode #lightmode-icon {
+				opacity: 1;
+			}
+		
+			body.dark-mode .Buttons {
+				background-color: #313131;
+			}
+		
+			.committeeTable.dark-mode {
+			  background-color: black;
+			}
+		</style>
 	</head>
-	<body onLoad="MM_preloadImages('../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav2roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav3roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav5roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/advertisingroll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav6roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/nav_home_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/nav_facilities_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/nav_contact_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/nav_privacy_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/nav_events_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/memb_area_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin_roll.JPG','1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link_roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/calendar_roll.JPG','1.IMAGES/1.HOME/3.DOC_IMAGES/Tournament_application_form_ROLL.jpg')">
-		<table width="900" height="1174" border="0" align="center">
-			<tr>
-				<td width="9" height="669" rowspan="4" valign="top">
-					<div align="right">
-						<p>&nbsp;</p>
-					</div>
-				</td>
-				<td width="882" height="62" valign="top">
-					<p align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/Top_bar.jpg" width="883" height="13"></p>
-					<p align="right"><font color="#FFFFFF"><font color="#000000" size="6">LIZARD 
-						PENINSULA BOWMEN</font><font color="#FFFFFF"><font color="#000000" size="6"></font><font color="#FFFFFF"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font></font></font><font color="#000000" size="6"><a href="LPBM&#32;Committee&#32;Minuets.php.html" target="_self" onMouseOver="MM_swapImage('SignIN','','1.IMAGES/1.HOME/1.NAVIGATION/memb_area_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/memb_area.jpg" name="SignIN" width="73" height="35" border="0"></a><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font><font color="#FFFFFF"><font color="#000000"></font><font color="#FFFFFF"></font></font></font><font color="#000000"><a href="LPBB&#32;Beginners.php.html" target="_self" onMouseOver="MM_swapImage('Beginners Sign In','','1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin_roll.JPG',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin.JPG" name="Beginners Sign In" width="73" height="35" border="0"></a></font><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font><font color="#000000"><a href="Scoresheets.htm" target="_blank" onMouseOver="MM_swapImage('Scoresheets','','1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link.jpg" name="Scoresheets" width="95" height="35" border="0"></a></font><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font><font color="#000000"><a href="Calendar.htm" target="_blank" onMouseOver="MM_swapImage('Calendar','','1.IMAGES/1.HOME/1.NAVIGATION/calendar_roll.JPG',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/calendar.JPG" name="Calendar" width="73" height="35" border="0"></a><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/flag.jpg" width="65" height="35"></font></font>
-					</p>
-					<p align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/bottom_bar.jpg" width="883" height="14"></p>
-				</td>
-				<td width="9" rowspan="4" valign="top">
-					<div align="right">
-						<p align="left">&nbsp;</p>
-					</div>
-				</td>
-			</tr>
-			<tr>
-				<td width="882" height="49" valign="top">
-					<div align="left"><a href="Index.htm" target="_self" onMouseOver="MM_swapImage('Home','','1.IMAGES/1.HOME/1.NAVIGATION/nav_home_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/nav_home.jpg" name="Home" width="147" height="49" border="0"></a><a href="Home&#32;Facilities.htm" target="_self" onMouseOver="MM_swapImage('Facilities','','1.IMAGES/1.HOME/1.NAVIGATION/nav_facilities_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/nav_facilities.jpg" name="Facilities" width="147" height="49" border="0"></a><a href="Home&#32;Events.htm#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Events','','1.IMAGES/1.HOME/1.NAVIGATION/nav_events_roll.jpg',1)"><img src="1.IMAGES/1.HOME/1.NAVIGATION/nav_events_roll.jpg" name="Events" width="147" height="49" border="0"></a><a href="Home&#32;Contact&#32;Us.htm" target="_self" onMouseOver="MM_swapImage('Contact Us','','1.IMAGES/1.HOME/1.NAVIGATION/nav_contact_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/nav_contact.jpg" name="Contact Us" width="147" height="49" border="0"></a><a href="Home&#32;Privicy&#32;Policy.htm" target="_self" onMouseOver="MM_swapImage('Privacy Policy','','1.IMAGES/1.HOME/1.NAVIGATION/nav_privacy_roll.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/nav_privacy.jpg" name="Privacy Policy" width="147" height="49" border="0"></a></div>
-				</td>
-			</tr>
-			<tr>
-				<td width="882" height="749" align="center" valign="top">
-					<table width="880" height="699" border="0" align="center">
-						<tr>
-							<td width="441" height="376" valign="top">
-								<div align="right">
-									<table width="435" height="371" border="2" align="center" cellpadding="25" bordercolor="#FF9900" bgcolor="#FFCC00">
-										<tr>
-											<td height="363" colspan="2" valign="top">
-												<div align="center">
-													<p><font size="+2" face="Arial, Helvetica, sans-serif"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><u>HAVE 
-														A GO's</u></font></strong></font>
-													</p>
-													<p><strong><font face="Verdana, Arial, Helvetica, sans-serif">Dates 
-														for 2025 TBC</font></strong>
-													</p>
-													<p><font face="Verdana, Arial, Helvetica, sans-serif">Starting 
-														from<strong> 10:00am </strong>to<strong> 16:00pm </strong></font>
-													</p>
-													<p><font face="Verdana, Arial, Helvetica, sans-serif">Held 
-														at our Archery Field near Garras</font>
-													</p>
-													<p><font face="Verdana, Arial, Helvetica, sans-serif">(Have 
-														a Go's take place on a Saturday)</font>
-													</p>
-													<p><strong><font face="Verdana, Arial, Helvetica, sans-serif">DATES 
-														TBC </font></strong>
-													</p>
-													<p><font face="Verdana, Arial, Helvetica, sans-serif">Postcode 
-														- <strong>TR12 6LN</strong></font>
-													</p>
-													<p><font face="Verdana, Arial, Helvetica, sans-serif"><strong>&pound;5 
-														</strong>per person shooting, culminating in a chance 
-														to win a free go at stopping our Local Zombie!!</font>
-													</p>
-												</div>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</td>
-							<td width="441" height="376" valign="top">
-								<table width="435" height="384" border="10" align="center" cellpadding="25" bordercolor="#000000" bgcolor="#FFFFFF">
-									<tr>
-										<td height="360" colspan="2" valign="top" bgcolor="#FFFFFF">
-											<div align="center">
-												<p><font color="#FFFFFF" size="+2" face="Arial, Helvetica, sans-serif"><strong><font color="#000000" face="Verdana, Arial, Helvetica, sans-serif"><u>Open 
-													Tournament 2025</u></font></strong></font>
-												</p>
-												<p><font color="#000000" size="+1" face="Verdana, Arial, Helvetica, sans-serif">(&#8216;Summer 
-													Bonanza&#8217;)</font>
-												</p>
-												<p><font color="#000000" size="+1" face="Verdana, Arial, Helvetica, sans-serif">We 
-													hold a Two Day Tournament</font>
-												</p>
-												<p><font color="#000000" size="+1" face="Verdana, Arial, Helvetica, sans-serif">Held 
-													on the August Bank holiday </font>
-												</p>
-												<p><font color="#000000" size="+1" face="Verdana, Arial, Helvetica, sans-serif">23th/24th 
-													2025 TBC</font>
-												</p>
-												<p><a href="https://drive.google.com/file/d/1hcZ57eyb4RfMokHeo-q0rAkh76t3NyGN/view?usp=sharing" target="_blank" onMouseOver="MM_swapImage('Tournament Application Form','','1.IMAGES/1.HOME/3.DOC_IMAGES/Tournament_application_form_ROLL.jpg',1)" onMouseOut="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/3.DOC_IMAGES/Tournament_application_form.jpg" name="Tournament Application Form" width="200" height="55" border="0"></a></p>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-						<tr>
-							<td width="441" height="300" valign="top">
-								<table width="435" height="315" border="2" align="center" cellpadding="25" bordercolor="#000000" bgcolor="#FFFFFF">
-									<tr>
-										<td height="307" colspan="2" valign="top" bordercolor="#000000">
-											<div align="center">
-												<p><font face="Arial, Helvetica, sans-serif"><strong><font size="3" face="Verdana, Arial, Helvetica, sans-serif">ARCHERS 
-													FROM OTHER CLUBS</font></strong></font>
-												</p>
-												<p><font size="3" face="Verdana, Arial, Helvetica, sans-serif">Archers 
-													from other Clubs are always most welcome to shoot with us 
-													as our Guests, whether Indoors at Gweek Village Hall or 
-													Outside at our Field near Garras. </font>
-												</p>
-												<p><font size="3" face="Verdana, Arial, Helvetica, sans-serif">Please 
-													contact a Club Officer or any other Committee Member to 
-													make arrangements. </font>
-												</p>
-												<p><font size="3" face="Verdana, Arial, Helvetica, sans-serif">A 
-													valid Archery GB card will be required.</font>
-												</p>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-							<td width="441" height="300" valign="top">
-								<table width="435" height="314" border="2" align="center" cellpadding="25" bordercolor="#FF9900" bgcolor="#FFCC00">
-									<tr>
-										<td height="306" colspan="2" valign="top">
-											<div align="center">
-												<p><strong><font color="#000000" size="3" face="Verdana, Arial, Helvetica, sans-serif">TASTER 
-													SESSIONS</font></strong>
-												</p>
-												<p><font color="#993300" size="3" face="Verdana, Arial, Helvetica, sans-serif">We 
-													hold taster sessions at the club by prior mutual arrangement 
-													with your group - Youth Club, Scouts, WI, Anyone!</font>
-												</p>
-												<p><font color="#993300" size="3" face="Verdana, Arial, Helvetica, sans-serif">These 
-													sessions offer complete novices the opportunity to have 
-													an Archery &#8216;Taster&#8217;.</font>
-												</p>
-												<p><font color="#993300" size="3" face="Verdana, Arial, Helvetica, sans-serif">Two 
-													hours under the supervision of an Experienced Archer &#8211; 
-													perhaps use it as an experiment to see if you would like 
-													to do the Archery &amp; Club Induction Course, or maybe 
-													just as something a bit different for you and your friends 
-													to enjoy.</font>
-												</p>
-											</div>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr bgcolor="#000000">
-				<td width="882" height="151" bgcolor="#FFFFFF">
-					<div align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/Boarder_Chuff.JPG" width="850" height="252"></div>
-				</td>
-			</tr>
-		</table>
+	<body>
+		<div class="container">
+			<div class="Header">
+				<div class="headertext">LIZARD PENINSULA BOWMEN</div>
+				<div class="Buttons">
+				  <a href="auth/MembersLogin.html"><button class="nav-buttons">Members Sign In</button></a>
+				  <a href="auth/BeginnersLogin.html"><button class="nav-buttons">Beginners Sign In</button></a>
+				  <br>
+				  <a href="index.html"><button class="nav-buttons">Home</button></a>
+				  <a href="Scoresheets.html"><button class="nav-buttons">Scoresheets</button></a>
+				  <a href="Calendar.html"><button class="nav-buttons">Calendar</button></a>
+				  <a href="Facilities.html"><button class="nav-buttons">Facilities</button></a>
+				  <a href="Events.html"><button class="nav-buttons">Events</button></a>
+				  <a href="ContactUs.html"><button class="nav-buttons">Contact Us</button></a>
+				  <a href="PrivacyPolicy.html"><button class="nav-buttons">Privacy Policy</button></a>
+				  <button class="darkmode-btn" id="dark-mode-toggle">
+					<img src="/Images/Nav/BDark.png" class="darkmode-img" id="darkmode-icon" alt="Dark Mode">
+					<img src="/Images/Nav/BLight.png" class="darkmode-img" id="lightmode-icon" alt="Light Mode">
+				</button>
+				</div>
+			</div>
+			<br>
+			<br>
+			<div style="display: flex; width: 100%;" class="Info">
+				<div style="width: 50%;" class="InfoBox">
+					<b style="font-size: 2em;">
+					<u>HAVE A GO's</u></b>
+					<br>
+					Dates for 2025 TBC <br>
+					Starting from <b> 10:00am </b>to <b> 16:00pm </b>
+					Held at our Archery Field near Garras <br>
+					(Have a Go's take place on a Saturday) <br>
+					DATES TBC <br>
+					Postcode - TR12 6LN <br> <br>
+					£5 per person shooting, <br>
+					culminating in a chance to win <br>
+					a free go at stopping our Local Zombie!
+				</div>
+				<div style="width: 50%;" class="InfoBox">
+					<b style="font-size: 2em;"><u>Open Tournament 2025</u></b> <br><br>
+					<b>"Summer Bonanza" <br>
+					We hold a Two Day Tournament <br>
+					Held on the August Bank holiday <br>
+					23th/24th 2025 TBC <br>
+					<a href="https://drive.google.com/file/d/1hcZ57eyb4RfMokHeo-q0rAkh76t3NyGN/view?usp=sharing"><button class="nav-buttons">Tournament Application Form</button></a>
+					</b>
+				</div>
+			</div>
+			<div style="display: flex; width: 100%;" class="Info">
+				<div style="width: 50%;" class="InfoBox">
+					<b style="font-size: 2em;">ARCHERS FROM OTHER CLUBS</b> <br>
+					<b>Archers from other Clubs are always most welcome to shoot with us as our Guests, whether Indoors at Gweek Village Hall or Outside at our Field near Garras. </b> <br>
+					<b>Please contact a Club Officer or any other Committee Member to make arrangements. </b> <br>
+					<b>A valid Archery GB card will be required.</b>
+				</div>
+				<div style="width: 50%;" class="InfoBox">
+					<b style="font-size: 2em;">TASTER SESSIONS</b> <br>
+					<b>We hold taster sessions at the club by prior mutual <br>
+					arrangement with your group - Youth Club, Scouts, WI, Anyone! <br>
+					These sessions offer complete novices the opportunity to have an Archery &#8216;Taster&#8217; <br>
+					Two hours under the supervision of an Experienced Archer &#8211; perhaps use it as an experiment to see if you would like to do the Archery &amp; <br>
+					Club Induction Course, or maybe just as something a bit different for you and your friends to enjoy.</b>
+				</div>
+			</div>
 	</body>
+	<script src="Scripts/Darkmode.js"></script>
 </html>

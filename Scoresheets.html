@@ -3,388 +3,549 @@
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="Images/1.HOME/2.MAIN_IMAGES/LPB.png">
 		<title>LPB - Scoresheets</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<style>
-			body{
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			align-items: center;
+			body {
+			  display: none;
+			  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			  margin: 0;
+			  padding: 0;
+			  text-align: center;
+			  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			  transition: background-color 1s, color 0.5s;
 			}
+				
+			.headertext {
+			  font-size: 3em;
+			  font-weight: bold;
+			  margin: 20px;
+			}
+		
+			.Header {
+			  border-radius: 20px;
+			  padding: 10px;
+			}
+		
+			.Buttons {
+			  background-color: #e6e6e6;
+			  border-radius: 20px;
+			}
+		
 			.container {
-			width: 100%;
-			text-align: center;
+			  margin: auto;
+			  padding: 20px;
 			}
+		
 			.nav-buttons {
-			width: 149px;
-			height: 49px;
-			background-color: black;
-			border-radius: 10px;
-			border: solid;
-			border-color: #f8c301;
-			border-width: 2px;
-			color: white;
+			  width: 149px;
+			  height: 49px;
+			  background-color: black;
+			  color: white;
+			  border: 2px solid #f8c301;
+			  border-radius: 10px;
+			  margin: 10px;
+			  cursor: pointer;
+			  font-weight: bold;
+			  
 			}
+		
 			.nav-buttons:hover {
-			background-color: #f8c301;
-			border-color: black;
+			  background-color: #f8c301;
+			  border-color: black;
 			}
-			.sheet-down {
-			width: 150px;
-			height: 50px;
-			background-color: black;
-			border-radius: 10px;
-			border: solid;
-			border-width: 2px;
-			color: white;
+		
+			.committee-title {
+			  font-size: 2em;
+			  margin: 40px 0 20px;
+			  font-weight: bold;
 			}
-			.sheet-down:hover {
-			background-color: #f8c301;
+		
+			table {
+			  width: 100%;
+			  max-width: 900px;
+			  margin: auto;
+			  font-size: 1em;
+			}
+		
+			td {
+			  border: 2px solid #666666;
+			  padding: 20px;
+			  text-align: center;
+			  vertical-align: middle;
+			  font-size: 1.2em;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo {
+			  width: 1080px;
+			  height: 1920px;
+			  max-width: 150px;
+			  height: auto;
+			  border: 1px solid #000;
+			  border-radius: 12px;
+			  transition: max-width 0.3s ease;
+			  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+		
+			.Photo:hover {
+			  max-width: 180px;
+			}
+		
+			.contact-img {
+			  width: 250px;
+			  height: 30px;
+			}
+		
+			@media (max-width: 768px) {
+			  .headertext {
+				font-size: 2em;
+			  }
+		
+			  .nav-buttons {
+				width: 45%;
+				margin: 5px 0;
+			  }
+		
+			  td {
+				display: block;
+				width: 90%;
+				text-align: center;
+			  }
 			}
 			
+			.contact-button {
+			  background-color: #000000;
+			  color: #FFFFFF;
+			  border: #f8c301;
+			  border-radius: 20px;
+			  height: 40px;
+			  width: 100%;
+			  transition: background-color 0.3s ease;
+			}
+		
+			.contact-button:hover {
+			  background-color: #ffc800;
+			  color: #000000;
+			  cursor: pointer;
+			}
+			.nav-buttons {
+				width: 149px;
+				height: 49px;
+				background-color: black;
+				border-radius: 10px;
+				border: solid;
+				border-color: #f8c301;
+				border-width: 2px;
+				color: white;
+			}
+
+			.nav-buttons:hover {
+				background-color: #f8c301;
+				border-color: black;
+			}
+
+			.sheet-down {
+				width: 150px;
+				height: 50px;
+				background-color: black;
+				border-radius: 10px;
+				border: solid;
+				border-width: 2px;
+				color: white;
+			}
+
+			.sheet-down:hover {
+				background-color: #f8c301;
+			}
+
+			.footer b {
+				position: absolute;
+				left: 10px;
+			}
+		  </style>
+		<style>
+			.darkmode-btn {
+			  position: fixed;
+			  top: 30px;
+			  right: 20px;
+			  z-index: 2;
+			  background-color: transparent;
+			  border: none;
+			  cursor: pointer;
+			  padding: 0;
+			  width: 50px;
+			  height: 50px;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			}
+		
+			.darkmode-img {
+			  width: 50px;
+			  height: 50px;
+			  transition: opacity 0.5s ease;
+			  position: absolute;
+			}
+		
+			body.dark-mode {
+			  background-color: #121212;
+			  color: white;
+			}
+				
+			#darkmode-icon {
+			  opacity: 1;
+			}
+				
+			.dark-mode #darkmode-icon {
+			  opacity: 0;
+			}
+		
+			#lightmode-icon {
+				opacity: 0;
+			}
+		
+			.dark-mode #lightmode-icon {
+				opacity: 1;
+			}
+		
+			body.dark-mode .Buttons {
+				background-color: #313131;
+			}
+		
+			.committeeTable.dark-mode {
+			  background-color: black;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
-			<a style="font-size: 3em;">
-			<b>LIZARD PENINSULA BOWMEN</b>
+			<div class="Header">
+				<div class="headertext">LIZARD PENINSULA BOWMEN</div>
+				<div class="Buttons">
+				  <a href="auth/MembersLogin.html"><button class="nav-buttons">Members Sign In</button></a>
+				  <a href="auth/BeginnersLogin.html"><button class="nav-buttons">Beginners Sign In</button></a>
+				  <br>
+				  <a href="index.html"><button class="nav-buttons">Home</button></a>
+				  <a href="Scoresheets.html"><button class="nav-buttons">Scoresheets</button></a>
+				  <a href="Calendar.html"><button class="nav-buttons">Calendar</button></a>
+				  <a href="Facilities.html"><button class="nav-buttons">Facilities</button></a>
+				  <a href="Events.html"><button class="nav-buttons">Events</button></a>
+				  <a href="ContactUs.html"><button class="nav-buttons">Contact Us</button></a>
+				  <a href="PrivacyPolicy.html"><button class="nav-buttons">Privacy Policy</button></a>
+				  <button class="darkmode-btn" id="dark-mode-toggle">
+					<img src="/Images/Nav/BDark.png" class="darkmode-img" id="darkmode-icon" alt="Dark Mode">
+					<img src="/Images/Nav/BLight.png" class="darkmode-img" id="lightmode-icon" alt="Light Mode">
+				</button>
+				</div>
+			  </div>
 			<br>
-			<a href="index.html"><button class="nav-buttons"><b>Back</b></button></a>
-			</a>
 			<br>
-			<br>
-			<!-- HEADERS -->
-			<div align="center">
-				<table style="border-radius: 10px;" border="1" bordercolor="#000000">
+			<div class="table" align="center">
+				<table style="border: none" border="1">
 					<tr style="background-color: #f8c301;">
-						<td style="border-top-left-radius: 10px;">
-							<div align="center"><b>
-								<a face="Verdana, Arial, Helvetica, sans-serif">INDOOR</a>
-								</b>
+						<td style="border-top-left-radius: 30px;">
+							<div style="text-align: center">
+								<b>INDOOR</b>
 							</div>
 						</td>
 						<td>
-							<p><b>
-								<a face="Verdana, Arial, Helvetica, sans-serif">OUTDOOR
-								IMPERIAL </a>
-								</b>
-							</p>
+							<div style="text-align: center">
+								<b>OUTDOOR IMPERIAL</b>
+							</div>
 						</td>
-						<td style="border-top-right-radius: 10px;">
-							<p>
-								<a face="Verdana, Arial, Helvetica, sans-serif"><b>OUTDOOR METRIC </b></a>
-							</p>
+						<td style="border-top-right-radius: 30px;">
+							<div style="text-align: center">
+								<b>OUTDOOR METRIC</b>
+							</div>
 						</td>
 					</tr>
-					<!-- CONTENT -->
 					<tr>
 						<td>
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.01A</a>
-								</b>
-							</p>
-							<p align="center"><b>
-								<a>
-								<a href="https://drive.google.com/file/d/1PZyCoQVZhMNYPvj1JdefS07lc0WFmc0s/view?usp=sharing" target="_blank">
-								<button class="sheet-down"><b>
-								PORTSMOUTH
-								<br>
-								5 DOZEN
-								</b></button>
-								</a>
-								</a>
-								</b>
-							</p>
-						</td>
-						<td width="250" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.01</a>
-								</b>
-							</p>
-							<p align="center">
+							<p style="text-align: center">
 								<b>
-								<button class="sheet-down"><b>
-								BRISTOLS
-								<br>
-								6 x 4 x 2 DOZEN
-								</b></button>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.01A</a>
 								</b>
 							</p>
-						</td>
-						<td width="291" bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.01</a>
-									</b>
-								</p>
-								<p align="center"><b>
-									<a>
+							<p style="text-align: center">
+								<b>
 									<a href="https://drive.google.com/file/d/1PZyCoQVZhMNYPvj1JdefS07lc0WFmc0s/view?usp=sharing" target="_blank">
-									<button class="sheet-down"><b>
-									Metrics
-									</b></button>
-									</a>
-									</a>
-									</b>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td height="90" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.02</a>
-								</b>
-							</p>
-							<p align="center"><b>
-								<a href="https://drive.google.com/file/d/1orhlxAIWFjIuhwk9xmaLaIxW-w19Bp7Z/view?usp=sharing">
-									<button class="sheet-down"><b>
-										VEGAS
-										<br>
-										2 DOZEN
-										</b>
-									</button>
-								</a>
-							</b>
-						</p>
-						</td>
-						<td>
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.02</a>
-								</b>
-							</p>
-							<p align="center">
-								<a href="https://drive.google.com/file/d/1MHA2aC5YVKxvMHLTYHxpP1FWDmyfOPkj/view?usp=sharing">
-									<button class="sheet-down"><b>
-										WINDSORS
-										<br>
-										3X3X3X3 DOZEN
-										</b>
-									</button>
-								</a>
-							</p>
-						</td>
-						<td>
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.02</a>
-									</b>
-								</p>
-								<p align="center"><b><a href="https://drive.google.com/file/d/1bxoJ2BgohuoU35s03VtCCJcH0IUctCTi/view?usp=sharing"></a>
-									<button class="sheet-down"><b>
-										HALF METRICS
-										</b></button>
-									</a>
-								</b>
-							</p>
-							</div>
-						</td>
-					</tr>
-					<tr align="center" valign="top" bgcolor="#F4F4F4">
-						<td height="90" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.03</a>
-								</b>
-							</p>
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif"></a><a href="https://drive.google.com/file/d/1-OndJ7rGiIxEPUVz3qHHdt1LCaqPuhMP/view?usp=sharing">
-									<button class="sheet-down"><b>
-										WA 18
-										<br>
-										5 DOZEN
-										</b>
-									</button>
-									</a>
-								</b>
-							</p>
-						</td>
-						<td bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.03</a>
-									</b>
-								</p>
-								<p align="center">
-									<a href="https://drive.google.com/file/d/16vEDPGZuz0LlGmDbiA_AspTuOCJefPwj/view?usp=sharing">
-										<button class="sheet-down"><b>
-											WESTERNS
-											<br>
-											4 X 4 DOZEN
-											</b>
+										<button class="sheet-down">
+											<b>PORTSMOUTH <br> 5 DOZEN </b>
 										</button>
 									</a>
-								</p>
-							</div>
-						</td>
-						<td bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.03</a>
-									</b>
-								</p>
-								<p align="center">
-									<a href="https://drive.google.com/file/d/1XjWkyZkJ47xgpUkEhbfcFrwQz_4-ardT/view?usp=sharing">
-										<button class="sheet-down"><b>
-											WA 900
-											</b>
-										</button>
-									</a>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr align="center" valign="top" bgcolor="#F4F4F4">
-						<td height="90" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.04</a>
 								</b>
 							</p>
-							<p align="center">
-								<a href="https://drive.google.com/file/d/1c2JVS_YNp3Tg1YpoA1k8f_Wl_NGFSF5f/view?usp=sharing">
-									<button class="sheet-down"><b>
-										WORCESTER
-										<br>
-										12 ENDS OF 5
-										</b></button>
-								</a>
-							</p>
 						</td>
-						<td bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.04</a>
+						<td width="250">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.01</a>
 								</b>
 							</p>
-							<p align="center">
-								<a href="https://drive.google.com/file/d/11eYMihrY6tjG6M8g7cjrcm5flKcgDK7K/view?usp=sharing">
-									<button class="sheet-down"><b>
-										NATIONALS
-										<br>
-										4 X 2 DOZEN
-										</b></button>
-								</a>
-							</p>
-						</td>
-						<td bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.04</a>
-									</b>
-								</p>
-								<p align="center">
-									<a href="https://drive.google.com/file/d/1PGvJsxgIS4zGKgEQbAa_GO72gcLbgpqa/view?usp=sharing">
-										<button class="sheet-down"><b>
-											WA 70
-											<br>
-											6 DOZEN
-											</b></button>
-									</a>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr align="center" valign="top" bgcolor="#F4F4F4">
-						<td height="90" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.05</a>
+							<p style="text-align: center">
+								<b>
+									<button class="sheet-down">
+										<b>BRISTOLS <br> 6 x 4 x 2 DOZEN </b>
+									</button>
 								</b>
 							</p>
-							<p align="center">
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif"></a><a href="https://drive.google.com/file/d/1mgPOgoo8RsiM2suRlsZf6SfXPRRf_tff/view?usp=sharing">
-									<button class="sheet-down"><b>
-										BRAY
-										<br>
-										5 ENDS
-										</b></button>
-								</a>
-							</p>
 						</td>
-						<td bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.05</a>
-									</b>
-								</p>
-								<p align="center">
-									<a href="https://drive.google.com/file/d/1ZZnVLBulQEA9Yv-uDv6J2eFOA_74wI8H/view?usp=sharing">
-										<button class="sheet-down"><b>
-											WARWICKS
-											<br>
-											2 X 2 DOZEN
-											</b></button>
-									</a>
-								</p>
-							</div>
-						</td>
-						<td align="center" bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.05</a>
-									</b>
-								</p>
-								<p align="center">
-									<a href="https://drive.google.com/file/d/1tKfy_umdQ5ZHsZapZi245bj6fRnkqjxQ/view?usp=sharing">
-										<button class="sheet-down"><b>
-											FROSTBITE
-											<br>
-											3 DOZEN
-											</b></button>
-									</a>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr align="center" valign="top" bgcolor="#F4F4F4">
-						<td height="90" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF">
-							<p align="center">&nbsp;</p>
-						</td>
-						<td bgcolor="#FFFFFF">
-							<div align="center">
-								<p><b>
-									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.06</a>
-									</b>
-								</p>
-								<p align="center">
+						<td width="291">
+							<div style="text-align: center">
+								<p>
 									<b>
-									<a href="https://drive.google.com/file/d/1dg1IAG0Us279yhwvZt3cgRk6NFAFzStl/view?usp=sharing">
-										<button class="sheet-down"><b>
-											ST NICHOLAS
-											<br>
-											4 X 3 DOZEN
-											</b></button>
-									</a>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.01</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<b>
+										<a href="https://drive.google.com/file/d/1PZyCoQVZhMNYPvj1JdefS07lc0WFmc0s/view?usp=sharing" target="_blank">
+											<button class="sheet-down">
+												<b>Metrics</b>
+											</button>
+										</a>
 									</b>
 								</p>
 							</div>
 						</td>
-						<td align="center" bgcolor="#FFFFFF">
-							<p align="center"><b>
-								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.06</a>
+					</tr>
+					<tr>
+						<td height="90">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.02</a>
 								</b>
 							</p>
-							<p align="center">
-								<a href="https://drive.google.com/file/d/1iNNepjjjZ67nRXD1f9wnSJU6XM7TPp_u/view?usp=sharing">
-									<button class="sheet-down"><b>
-										IRONMAN
-										<br>
-										7 DOZEN
-										</b></button>
+							<p style="text-align: center">
+								<b>
+									<a href="https://drive.google.com/file/d/1orhlxAIWFjIuhwk9xmaLaIxW-w19Bp7Z/view?usp=sharing">
+										<button class="sheet-down">
+											<b>VEGAS <br> 2 DOZEN </b>
+										</button>
 									</a>
 								</b>
 							</p>
 						</td>
+						<td>
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.02</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<a href="https://drive.google.com/file/d/1MHA2aC5YVKxvMHLTYHxpP1FWDmyfOPkj/view?usp=sharing">
+									<button class="sheet-down">
+										<b>WINDSORS <br> 3X3X3X3 DOZEN </b>
+									</button>
+								</a>
+							</p>
+						</td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.02</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<b>
+										<a href="https://drive.google.com/file/d/1bxoJ2BgohuoU35s03VtCCJcH0IUctCTi/view?usp=sharing"></a>
+										<button class="sheet-down">
+											<b>HALF METRICS</b>
+										</button>
+									</b>
+								</p>
+							</div>
+						</td>
+					</tr>
+					<tr style="text-align: center" valign="top" >
+						<td height="90">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.03</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif"></a>
+									<a href="https://drive.google.com/file/d/1-OndJ7rGiIxEPUVz3qHHdt1LCaqPuhMP/view?usp=sharing">
+										<button class="sheet-down">
+											<b>WA 18 <br> 5 DOZEN </b>
+										</button>
+									</a>
+								</b>
+							</p>
+						</td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.03</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<a href="https://drive.google.com/file/d/16vEDPGZuz0LlGmDbiA_AspTuOCJefPwj/view?usp=sharing">
+										<button class="sheet-down">
+											<b>WESTERNS <br> 4 X 4 DOZEN </b>
+										</button>
+									</a>
+								</p>
+							</div>
+						</td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.03</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<a href="https://drive.google.com/file/d/1XjWkyZkJ47xgpUkEhbfcFrwQz_4-ardT/view?usp=sharing">
+										<button class="sheet-down">
+											<b>WA 900</b>
+										</button>
+									</a>
+								</p>
+							</div>
+						</td>
+					</tr>
+					<tr style="text-align: center" valign="top" >
+						<td height="90">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.04</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<a href="https://drive.google.com/file/d/1c2JVS_YNp3Tg1YpoA1k8f_Wl_NGFSF5f/view?usp=sharing">
+									<button class="sheet-down">
+										<b>WORCESTER <br> 12 ENDS OF 5 </b>
+									</button>
+								</a>
+							</p>
+						</td>
+						<td>
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.04</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<a href="https://drive.google.com/file/d/11eYMihrY6tjG6M8g7cjrcm5flKcgDK7K/view?usp=sharing">
+									<button class="sheet-down">
+										<b>NATIONALS <br> 4 X 2 DOZEN </b>
+									</button>
+								</a>
+							</p>
+						</td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.04</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<a href="https://drive.google.com/file/d/1PGvJsxgIS4zGKgEQbAa_GO72gcLbgpqa/view?usp=sharing">
+										<button class="sheet-down">
+											<b>WA 70 <br> 6 DOZEN </b>
+										</button>
+									</a>
+								</p>
+							</div>
+						</td>
+					</tr>
+					<tr style="text-align: center" valign="top" >
+						<td height="90">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBC.ISS.05</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif"></a>
+								<a href="https://drive.google.com/file/d/1mgPOgoo8RsiM2suRlsZf6SfXPRRf_tff/view?usp=sharing">
+									<button class="sheet-down">
+										<b>BRAY <br> 5 ENDS </b>
+									</button>
+								</a>
+							</p>
+						</td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.05</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<a href="https://drive.google.com/file/d/1ZZnVLBulQEA9Yv-uDv6J2eFOA_74wI8H/view?usp=sharing">
+										<button class="sheet-down">
+											<b>WARWICKS <br> 2 X 2 DOZEN </b>
+										</button>
+									</a>
+								</p>
+							</div>
+						</td>
+						<td style="text-align: center">
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.05</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<a href="https://drive.google.com/file/d/1tKfy_umdQ5ZHsZapZi245bj6fRnkqjxQ/view?usp=sharing">
+										<button class="sheet-down">
+											<b>FROSTBITE <br> 3 DOZEN </b>
+										</button>
+									</a>
+								</p>
+							</div>
+						</td>
+					</tr>
+					<tr style="text-align: center" valign="top" >
+						<td></td>
+						<td>
+							<div style="text-align: center">
+								<p>
+									<b>
+										<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSI.06</a>
+									</b>
+								</p>
+								<p style="text-align: center">
+									<b>
+										<a href="https://drive.google.com/file/d/1dg1IAG0Us279yhwvZt3cgRk6NFAFzStl/view?usp=sharing">
+											<button class="sheet-down">
+												<b>ST NICHOLAS <br>4 X 3 DOZEN </b>
+											</button>
+										</a>
+									</b>
+								</p>
+							</div>
+						</td>
+						<td style="text-align: center">
+							<p style="text-align: center">
+								<b>
+									<a color="#CCCCCC" size="-4" face="Verdana, Arial, Helvetica, sans-serif">LPBS.OSSM.06</a>
+								</b>
+							</p>
+							<p style="text-align: center">
+								<a href="https://drive.google.com/file/d/1iNNepjjjZ67nRXD1f9wnSJU6XM7TPp_u/view?usp=sharing">
+									<button class="sheet-down">
+										<b>IRONMAN <br> 7 DOZEN </b>
+									</button>
+								</a>
+							</p>
+						</td>
 					</tr>
 					<tr>
-						<td height="313" colspan="3" valign="top">
-							<div align="center">
-								<p>&nbsp;</p>
-								<p><img src="IMAGES/1.HOME/2.MAIN_IMAGES/Boarder_Chuff.JPG" width="850" height="252"></p>
-							</div>
+						<td class="footer" style="border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;" colspan="100">
+							<img src="Images/Nav/Border_Chuff.JPG">
 						</td>
 					</tr>
 				</table>
-				<p>&nbsp;</p>
 			</div>
-			</td>
-			</tr>
-			</table>
 		</div>
 	</body>
+	<script src="Scripts/Darkmode.js"></script>
 </html>
