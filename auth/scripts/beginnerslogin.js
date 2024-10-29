@@ -13,9 +13,9 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 
 
     if (inputUsername === validUsername && inputPassword === validPassword) {
-        window.location.href = '/helstonarchery/BeginnerRedirect.html';
+        window.location.href = '/Beginner/Landing.html';
     } else {
-        messageElement.innerHTML = "Incorrect username or password.";
+        window.alert('Incorrect Credentials');
     }
 
 });

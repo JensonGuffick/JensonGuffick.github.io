@@ -1,277 +1,439 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="Images/1.HOME/2.MAIN_IMAGES/LPB.png">
+		<link rel="shortcut icon" type="image/x-icon" href="/Images/Nav/LPB.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Committee Minuets</title>
+		<title>Committee Minutes - LPB</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<style>
+			body {
+				display: none;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+				transition: background-color 1s, color 0.5s;
+			}
+
+			.headertext {
+				font-size: 3em;
+				font-weight: bold;
+				margin: 20px;
+			}
+
+			.subheadertext {
+				font-size: 2em;
+				font-weight: bold;
+				margin: 20px;
+			}
+
+			.Header {
+				border-radius: 20px;
+				padding: 10px;
+			}
+
+			.Buttons {
+				background-color: #e6e6e6;
+				border-radius: 20px;
+			}
+
+			.container {
+				margin: auto;
+				padding: 20px;
+			}
+
+			.nav-buttons {
+				width: 149px;
+				height: 49px;
+				background-color: black;
+				color: white;
+				border: 2px solid #f8c301;
+				border-radius: 10px;
+				margin: 10px;
+				cursor: pointer;
+				font-weight: bold;
+			}
+
+			.nav-buttons:hover {
+				background-color: #f8c301;
+				border-color: black;
+				color: black;
+			}
+
+			.selected-nav-buttons {
+				width: 149px;
+				height: 49px;
+				background-color: #c49900;
+				color: white;
+				border: 2px solid #000000;
+				border-radius: 10px;
+				margin: 10px;
+				cursor: pointer;
+				font-weight: bold;
+				color: black;
+			}
+
+			.selected-nav-buttons:hover {
+				background-color: #000000;
+				border-color: #ff6c6c;
+				color: white;
+			}
+
+			.committee-title {
+				font-size: 2em;
+				margin: 40px 0 20px;
+				font-weight: bold;
+			}
+
+			table {
+				width: 100%;
+				max-width: 900px;
+				margin: auto;
+				font-size: 1em;
+			}
+
+			td {
+				border: 2px solid #666666;
+				padding: 20px;
+				text-align: center;
+				vertical-align: middle;
+				font-size: 1.2em;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+
+			.Photo {
+				width: 1080px;
+				height: 1920px;
+				max-width: 150px;
+				height: auto;
+				border: 1px solid #000;
+				border-radius: 12px;
+				transition: max-width 0.3s ease;
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+
+			.Photo:hover {
+				max-width: 180px;
+			}
+
+			.contact-img {
+				width: 250px;
+				height: 30px;
+			}
+
+			@media (max-width: 768px) {
+				.headertext {
+					font-size: 2em;
+				}
+
+				.nav-buttons {
+					width: 45%;
+					margin: 5px 0;
+				}
+
+				td {
+					display: block;
+					width: 90%;
+					text-align: center;
+				}
+			}
+
+			.contact-button {
+				background-color: #000000;
+				color: #FFFFFF;
+				border: #f8c301;
+				border-radius: 20px;
+				height: 40px;
+				width: 100%;
+				transition: background-color 0.3s ease;
+			}
+
+			.contact-button:hover {
+				background-color: #ffc800;
+				color: #000000;
+				cursor: pointer;
+			}
+
+			.selectorlabel {
+				font-size: 2em;
+				font-weight: bold;
+			}
+			.selectorbox {
+				font-size: 2em;
+				font-weight: bold;
+			}
+			.year-data a {
+				color: black;
+				font-size: 2em;
+				padding: 8px;
+    			height: 40px;
+    			width: 40px;
+				background-color: #f8c301;
+				border-radius: 20px;
+				margin: 4px;
+			}
+
+			@media (max-width: 600px) {
+				.year-data a {
+					font-size: 1.2em;
+					height: 25px;
+					width: 25px;
+					padding: 2px;
+					margin: 2px;
+				}
+			}
+
+			#tooltip-box {
+				position: absolute;
+				padding: 8px;
+				background-color: #f8c301;
+				color: black;
+				font-size: 1em;
+				border-radius: 4px;
+				display: none;
+				z-index: 1000;
+			}
+		</style>
+		<style>
+			.darkmode-btn {
+				position: fixed;
+				top: 30px;
+				right: 20px;
+				z-index: 2;
+				background-color: transparent;
+				border: none;
+				cursor: pointer;
+				padding: 0;
+				width: 50px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.darkmode-img {
+				width: 50px;
+				height: 50px;
+				transition: opacity 0.5s ease;
+				position: absolute;
+			}
+
+			body.dark-mode {
+				background-color: #121212;
+				color: white;
+			}
+
+			#darkmode-icon {
+				opacity: 1;
+			}
+
+			.dark-mode #darkmode-icon {
+				opacity: 0;
+			}
+
+			#lightmode-icon {
+				opacity: 0;
+			}
+
+			.dark-mode #lightmode-icon {
+				opacity: 1;
+			}
+
+			body.dark-mode .Buttons {
+				background-color: #313131;
+			}
+
+			.committeeTable.dark-mode {
+				background-color: black;
+			}
+			#contentselect {
+           		margin-top: 20px;
+            	padding: 10px;
+            	border: 1px solid #ccc;
+            	background-color: #f9f9f9;
+        	}
+		</style>
 	</head>
-	<body onload="MM_preloadImages('../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav2roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav3roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav5roll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/advertisingroll.jpg','../../FEATHERFIRE%20DESIGN/FEATHERFIRE%20WEBSITE/Featherfirewebsite/HTML/Home/Images/homenav6roll.jpg','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Information_Downloads_Roll.jpg','1.IMAGES/1.HOME/1.NAVIGATION/calendar_roll.JPG','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Sign_In_Roll.JPG','1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin_roll.JPG','1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link_roll.jpg','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/News_Roll.jpg','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Minuets_Roll.jpg','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Bookings_roll.JPG','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Club_Records_Roll.jpg','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/League_Roll.JPG','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/sale_roll.jpg')">
-		<table width="900" height="1167" border="0" align="center">
-			<tbody>
-				<tr>
-					<td width="9" rowspan="5" valign="top">
-						<div align="right"></div>
-					</td>
-					<td width="882" height="110" align="center" valign="top">
-						<p align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/Top_bar.jpg" width="883" height="13"><font color="#FFFFFF"> 
-							<font color="#FFFFFF"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000"><a href="Calendar.htm" target="_blank" onmouseover="MM_swapImage('Calendar','','1.IMAGES/1.HOME/1.NAVIGATION/calendar_roll.JPG',1)" onmouseout="MM_swapImgRestore()"></a></font></font></font></font></font>
-						</p>
-						<p align="center"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000" size="6">LIZARD 
-							PENINSULA BOWMEN</font><font color="#FFFFFF"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font></font></font><font color="#FFFFFF"><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font></font></font><font color="#FFFFFF"><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font></font><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font><font color="#FFFFFF"><font color="#000000"></font><font color="#FFFFFF"></font></font></font><font color="#000000"><a href="LPBB%20Beginners.php" target="_self" onmouseover="MM_swapImage('Beginners Sign In','','1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin_roll.JPG',1)" onmouseout="MM_swapImgRestore()"><img src="http://helstonarchery.co.uk/1.IMAGES/1.HOME/1.NAVIGATION/beginners_signin.JPG" name="Beginners Sign In" width="73" height="35" border="0"></a></font><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font><font color="#000000"><a href="Scoresheets.htm" target="_blank" onmouseover="MM_swapImage('Scoresheets','','1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link_roll.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="http://helstonarchery.co.uk/1.IMAGES/1.HOME/1.NAVIGATION/scoresheets_link.jpg" name="Scoresheets" width="95" height="35" border="0"></a></font><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font><font color="#000000"><a href="Calendar.htm" target="_blank" onmouseover="MM_swapImage('Calendar','','1.IMAGES/1.HOME/1.NAVIGATION/calendar_roll.JPG',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/1.HOME/1.NAVIGATION/calendar.JPG" name="Calendar" width="73" height="35" border="0"></a></font><font color="#FFFFFF"><font color="#000000" size="6"><img src="1.IMAGES/1.HOME/1.NAVIGATION/blank.jpg" width="4" height="35"></font></font><font color="#000000" size="6"><a href="LPBC%20Committee_Area.php" target="_blank" onmouseover="MM_swapImage('Committee Sign In','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Sign_In_Roll.JPG',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Sign_In.JPG" name="Committee Sign In" width="73" height="35" border="0"></a><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/flag.jpg" width="65" height="35"></font></font></font>
-						</p>
-						<p align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/bottom_bar.jpg" width="883" height="14"></p>
-					</td>
-					<td width="9" rowspan="5" valign="top">
-						<div align="right">
-							<p align="left">&nbsp;</p>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="882" height="49" align="center" valign="top">
-						<div align="center"><a href="LPBM%20News.php" target="_self" onmouseover="MM_swapImage('News','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/News_Roll.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/News.jpg" name="News" width="70" height="49" border="0"></a><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Minuets_Roll.jpg',1)"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Committee_Minuets_Roll.jpg" name="ICommittee" width="149" height="49" border="0" id="ICommittee"></a><a href="LPBM%20Bookings.php" target="_self" onmouseover="MM_swapImage('Bookings','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Bookings_roll.JPG',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Bookings.JPG" name="Bookings" width="125" height="49" border="0"></a><a href="LPBM%20Club%20Records.php" target="_self" onmouseover="MM_swapImage('Records','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Club_Records_Roll.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Club_Records.jpg" name="Records" width="125" height="49" border="0"></a><a href="LPBM%20League.php" target="_self" onmouseover="MM_swapImage('League','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/League_Roll.JPG',1)" onmouseout="MM_swapImgRestore()"><img src="1.IMAGES/2.MEMBERS/1.%20NAVIGATION/League.JPG" name="League" width="105" height="49" border="0"></a><a href="LPBM%20Downloads.php" target="_self" onmouseover="MM_swapImage('Downloads','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Information_Downloads_Roll.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="http://helstonarchery.co.uk/1.IMAGES/2.MEMBERS/1.%20NAVIGATION/Information_Downloads.jpg" name="Downloads" width="147" height="49" border="0"></a><a href="LPBM%20For%20Sale.php" target="_self" onmouseover="MM_swapImage('For Sale','','1.IMAGES/2.MEMBERS/1.%20NAVIGATION/sale_roll.jpg',1)" onmouseout="MM_swapImgRestore()"><img src="http://helstonarchery.co.uk/1.IMAGES/2.MEMBERS/1.%20NAVIGATION/sale.jpg" name="For Sale" width="105" height="49" border="0"></a></div>
-					</td>
-				</tr>
-				<tr>
-					<td height="15" align="center" valign="top">
-						<div align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/Top_bar.jpg" width="883" height="13"></div>
-					</td>
-				</tr>
-				<tr>
-					<td width="882" height="936" align="center" valign="top">
-						<div align="center">
-							<table width="850" height="1592" border="1" bordercolor="#000000">
-								<tbody>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="362" colspan="9" valign="top" bgcolor="#FFFFFF"><img src="1.IMAGES/2.MEMBERS/2.%20MAIN%20IMAGES/LPB_LOGO.jpg" width="256" height="255"></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2024</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2023</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1f7tGrMHgZq0zIKwQl6Fstps404a99AVd/view?usp=sharing" target="_blank">JAN</a></font></strong></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1RDLFZDB_-qqSXeVWHveaC96XoQaiRSMq/view?usp=sharing" target="_blank">FEB</a></font></strong></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1e2wa9XFRTS8pLo1jHhrVaCXEiaE-LaZ-/view?usp=sharing" target="_blank">APR</a></font></strong></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#FFFFFF">&nbsp;</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2022</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1zvkgnWZqtHCj4sVw5nV2tnNugth2GJ4a/view?usp=sharing" target="_blank">FEB</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1B8AQbjMcBe_WHbKSNGEdgo_yvmhJkTi5/view?usp=sharing" target="_blank">MAR</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/15mXMflvve657w5WETxZiE57rsfr_xK58/view?usp=sharing" target="_blank">MAY</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1BdrpAgpeBX7blFi1-dv22GmpgkBQnnqB/view?usp=sharing" target="_blank">JUL</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/12ffN8y5CwNMnI8Z-j5BpaNsneA2rfLrQ/view?usp=sharing" target="_blank">SEP</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1AhsR6B78PktObb5XZwtxiVXNHwAvQMhf/view?usp=sharing">OCT 
-												(AGM)</a></font></strong></font>
-											</div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2"><strong><font face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1Og_Yf7aWpAjJ9zWUkdTZpZM-uNDRfgKg/view?usp=sharing" target="_blank">NOV</a></font></strong></font></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2021</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/15H03nXLDolGgjphgNHocL7iowktdctE1/view?usp=sharing" target="_blank">APR</a></font></strong></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/10sY3SCscmvfu9Ac94dc-q2CvvrMcxyBY/view?usp=sharing" target="_blank">JUN</a></font></strong></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1DCfNWoINW0J1DNPtn9YcOlkxJlJ87L03/view?usp=sharing" target="_blank">DEC</a></font></strong></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-										<td height="30" valign="top" bgcolor="#999999">&nbsp;</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2020</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1nGDBrOPwgAwFQgIBkS-G7zxWWt1PYKbh/view?usp=sharing" target="_blank">JAN</a></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1g4bK5P1FWqCUzI2t2jthESUtW5RLt9Dz/view?usp=sharing" target="_blank">MAR</a></strong></font></div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1ztu-L0D9eJM9VHV9gzwgaHDy6tXVx6in/view?usp=sharing" target="_blank">MAY 
-												(Covid) </a></strong></font>
-											</div>
-										</td>
-										<td height="30" valign="middle" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1xIahMAB6CP24GIze3ByV4qRoVCEIZyl6/view?usp=sharing" target="_blank">AUG</a></strong></font></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-										<td height="30" valign="top" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2019</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1Diws6oP78foclDSlnwPkWgyC_9q3IrkE/view?usp=sharing" target="_blank">JAN</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/16Nt8Nt443ZX7TajLzdw1LyMP-Tj0l4yi/view?usp=sharing" target="_blank">MAR</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1T4ecm3SKZPUV8pMN5XLRbCbIj3BEhmQb/view?usp=sharing">APR</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1gUD_2RanQjk5eQxJwVMpHo93UllH4ZWr/view?usp=sharing" target="_blank">JUN</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1Po9BW68qA5HYZbW7yWdhB1UAa7dGmVtt/view?usp=sharing" target="_blank">AUG</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1a8l2I-z0JU56bEeRGDNykVJuodcv1sdo/view?usp=sharing" target="_blank">SEP</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1LizKEwe0skVQmZFU82FznK54ozYn8Miw/view?usp=sharing" target="_blank">OCT 
-												(AGM)</a></font></strong>
-											</div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><strong><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><a href="https://drive.google.com/file/d/1quQoN-4euLiwBfTBuhy3uZ2xg3BPlz6Y/view?usp=sharing" target="_blank">DEC</a></font></strong></div>
-										</td>
-										<td height="30" bgcolor="#999999">
-											<div align="center"></div>
-										</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2018</strong></font></td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td width="84" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1v6OE2d3n30nC5Hcj418-ECmrRjCleAM3/view?usp=sharing" target="_blank">JAN</a></strong></font></div>
-										</td>
-										<td width="86" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1SZC-dKi8kfGrSJvG-vVP4WMik4cMmkmI/view?usp=sharing" target="_blank">MAR</a></strong></font></div>
-										</td>
-										<td width="87" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/107XXUylxARc-1B5F1aggV80hKB09osMo/view?usp=sharing" target="_blank">APR</a></strong></font></div>
-										</td>
-										<td width="87" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1at87YJx5LUjUzqYFrL7Hn11Xw3yGR95P/view?usp=sharing" target="_blank">MAY</a></strong></font></div>
-										</td>
-										<td width="86" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1MYsAjAC13sRsXHQItQIRhFDzAL2Nr4TY/view?usp=sharing" target="_blank">JUL</a></strong></font></div>
-										</td>
-										<td width="94" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1FXd27s-oRK8a5LwxF1Ep83YTcze_UHl8/view?usp=sharing" target="_blank">AUG</a></strong></font></div>
-										</td>
-										<td width="86" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1EVyhkBrnVrVUIDEFfVUXRmyLW1LnBGs3/view?usp=sharing" target="_blank">SEP</a></strong></font></div>
-										</td>
-										<td width="93" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1msFtiZDSNxWqo72advy7kNxijiQA-2m5/view?usp=sharing" target="_blank">OCT 
-												(AGM)</a></strong></font>
-											</div>
-										</td>
-										<td width="89" height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1f_Sr0EgGNSuLqeYaf-c8ufexVPO4-Xf9/view?usp=sharing" target="_blank">DEC</a></strong></font></div>
-										</td>
-									</tr>
-									<tr align="center" valign="middle" bgcolor="#F4F4F4">
-										<td height="20" colspan="9" valign="middle" bgcolor="#FFCC00"><font color="#333333" face="Verdana, Arial, Helvetica, sans-serif"><strong>2017</strong></font></td>
-									</tr>
-									<tr align="left" valign="middle" bgcolor="#F4F4F4">
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/16FFyTe_RMMKkEJfWXVemWFuQRd4ip1LV/view?usp=sharing" target="_blank">JAN</a></strong></font></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/182upLNazzDId4RhnjAGcBy_HJ9ftXX51/view?usp=sharing" target="_blank">MAR</a></strong></font></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1cJYZ0hZs8LE5YrIfrppgfTJPKn6Ws5rN/view?usp=sharing" target="_blank">MAY</a></strong></font></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1ZssZJBHazqgOBSV5X22tnBF_SwKKzf4i/view?usp=sharing" target="_blank">JUN</a></strong></font></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1_tv8zdTnxehn0Pir5rzThfTvzlfTjL80/view?usp=sharing" target="_blank">AUG</a></strong></font></div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/1Pi-30Tdmudd5ZjlmnbRs4asoYTqwzWvQ/view?usp=sharing" target="_blank">OCT 
-												(AGM)</a></strong></font>
-											</div>
-										</td>
-										<td height="30" bgcolor="#FFFFFF">
-											<div align="center"><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><strong><a href="https://drive.google.com/file/d/10TXrn0UfqrL1QqkipRTkV1A-mmJe7bp_/view?usp=sharing" target="_blank">DEC</a></strong></font></div>
-										</td>
-										<td width="93" height="30" bgcolor="#999999">&nbsp;</td>
-										<td width="89" height="30" bgcolor="#999999">&nbsp;</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<p align="center"><img src="1.IMAGES/1.HOME/2.MAIN_IMAGES/Boarder_Chuff.JPG" width="850" height="252"></p>
-					</td>
-				</tr>
-				<tr bgcolor="#000000">
-					<td width="882" height="21" bgcolor="#FFFFFF">
-						<div align="center"></div>
-					</td>
-				</tr>
-			</tbody>
-		</ta
+	<body>
+		<div class="container">
+			<div class="Header">
+				<div class="headertext">LIZARD PENINSULA BOWMEN</div>
+				<div class="Buttons">
+				  <a href="/index.html"><button class="nav-buttons">Home</button></a>
+				  <a href="/Scoresheets.html"><button class="nav-buttons">Scoresheets</button></a>
+				  <a href="/Calendar.html"><button class="nav-buttons">Calendar</button></a>
+				  <a href="/Facilities.html"><button class="nav-buttons">Facilities</button></a>
+				  <a href="/Events.html"><button class="nav-buttons">Events</button></a>
+				  <a href="/ContactUs.html"><button class="nav-buttons">Contact Us</button></a>
+				  <a href="/PrivacyPolicy.html"><button class="nav-buttons">Privacy Policy</button></a>
+				  <button class="darkmode-btn" id="dark-mode-toggle">
+					<img src="/Images/Nav/BDark.png" class="darkmode-img" id="darkmode-icon" alt="Dark Mode">
+					<img src="/Images/Nav/BLight.png" class="darkmode-img" id="lightmode-icon" alt="Light Mode">
+				</button>
+				</div>
+				<br>
+				<!-- <div style="border-style: solid; border-width: 2px; border-color: #f8c301; border-radius: 20px;"></div> -->
+				<div>
+					<a href="/Member/News.html"><button class="nav-buttons">News</button></a>
+					<a href="/Member/CommitteeMinutes.html"><button class="selected-nav-buttons">Committee Minutes</button></a>
+					<a href="/Member/Bookings.html"><button class="nav-buttons">Bookings</button></a>
+					<a href="/Member/ClubRecords.html"><button class="nav-buttons">Club Records</button></a>
+					<a href="/Member/InfoDownload.html"><button class="nav-buttons">Info and Downloads</button></a>
+					<a href="/ForSale.html"><button class="nav-buttons">For Sale</button></a>
+				</div>
+			</div>
+			<br>
+			<img style="border-radius: 100%;" src="/Images/Nav/LPB_LOGO.jpg">
+			<br><br>
+			<div class="MainContent">
+				<label class="selectorlabel" for="yearSelector">Select the year: </label>
+				<select class="selectorbox" id="yearSelector" onchange="updateContent()">
+					<option value="2017">2017</option>
+					<option value="default">Select a year</option>
+					<option value="2024">2024</option>
+					<option value="2023">2023</option>
+					<option value="2022">2022</option>
+					<option value="2021">2021</option>
+					<option value="2020">2020</option>
+					<option value="2019">2019</option>
+					<option value="2018">2018</option>
+					<option value="2017">2017</option>
+				</select>
+				<br>
+				<br>
+				<br>
+				<div id="default" class="year-data" style="display:none;font-weight: bold;"><p style="font-size: 2em;">Please select a year.</p></div>
+				<div id="2024" class="year-data" style="display:none;font-weight: bold;">
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Mar</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Apr</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">May</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Aug</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Sep</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Dec</a>
+				</div>
+				<div id="2023" class="year-data" style="display:none;">
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1f7tGrMHgZq0zIKwQl6Fstps404a99AVd/view">Jan</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1RDLFZDB_-qqSXeVWHveaC96XoQaiRSMq/view">Feb</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Mar</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1e2wa9XFRTS8pLo1jHhrVaCXEiaE-LaZ-/view">Apr</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">May</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Aug</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Sep</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Dec</a>
+				</div>
+				<div id="2022" class="year-data" style="display:none;">
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jan</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1zvkgnWZqtHCj4sVw5nV2tnNugth2GJ4a/view?usp=sharing">Feb</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1B8AQbjMcBe_WHbKSNGEdgo_yvmhJkTi5/view?usp=sharing">Mar</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Apr</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/15mXMflvve657w5WETxZiE57rsfr_xK58/view?usp=sharing">May</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jun</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1BdrpAgpeBX7blFi1-dv22GmpgkBQnnqB/view?usp=sharing">Jul</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Aug</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/12ffN8y5CwNMnI8Z-j5BpaNsneA2rfLrQ/view?usp=sharing">Sep</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1AhsR6B78PktObb5XZwtxiVXNHwAvQMhf/view?usp=sharing">Oct</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1Og_Yf7aWpAjJ9zWUkdTZpZM-uNDRfgKg/view?usp=sharing">Nov</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Dec</a>
+				</div>
+				<div id="2021" class="year-data" style="display:none;">
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Mar</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/15H03nXLDolGgjphgNHocL7iowktdctE1/view?usp=sharing">Apr</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">May</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/10sY3SCscmvfu9Ac94dc-q2CvvrMcxyBY/view?usp=sharing">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Aug</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Sep</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1DCfNWoINW0J1DNPtn9YcOlkxJlJ87L03/view?usp=sharing">Dec</a>
+				</div>
+				<div id="2020" class="year-data" style="display:none;">
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1nGDBrOPwgAwFQgIBkS-G7zxWWt1PYKbh/view?usp=sharing">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1g4bK5P1FWqCUzI2t2jthESUtW5RLt9Dz/view?usp=sharing">Mar</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Apr</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1ztu-L0D9eJM9VHV9gzwgaHDy6tXVx6in/view?usp=sharing">May</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1xIahMAB6CP24GIze3ByV4qRoVCEIZyl6/view?usp=sharing">Aug</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Sep</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Dec</a>
+				</div>
+				<div id="2019" class="year-data" style="display:none;">
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1Diws6oP78foclDSlnwPkWgyC_9q3IrkE/view?usp=sharing">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/16Nt8Nt443ZX7TajLzdw1LyMP-Tj0l4yi/view?usp=sharing">Mar</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1T4ecm3SKZPUV8pMN5XLRbCbIj3BEhmQb/view?usp=sharing">Apr</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">May</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1gUD_2RanQjk5eQxJwVMpHo93UllH4ZWr/view?usp=sharing">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1Po9BW68qA5HYZbW7yWdhB1UAa7dGmVtt/view?usp=sharing">Aug</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1a8l2I-z0JU56bEeRGDNykVJuodcv1sdo/view?usp=sharing">Sep</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1LizKEwe0skVQmZFU82FznK54ozYn8Miw/view?usp=sharing">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1quQoN-4euLiwBfTBuhy3uZ2xg3BPlz6Y/view?usp=sharing">Dec</a>
+				</div>
+				<div id="2018" class="year-data" style="display:none;">
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1v6OE2d3n30nC5Hcj418-ECmrRjCleAM3/view?usp=sharing">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1SZC-dKi8kfGrSJvG-vVP4WMik4cMmkmI/view?usp=sharing">Mar</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/107XXUylxARc-1B5F1aggV80hKB09osMo/view?usp=sharing">Apr</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1at87YJx5LUjUzqYFrL7Hn11Xw3yGR95P/view?usp=sharing">May</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jun</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1MYsAjAC13sRsXHQItQIRhFDzAL2Nr4TY/view?usp=sharing">Jul</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1FXd27s-oRK8a5LwxF1Ep83YTcze_UHl8/view?usp=sharing">Aug</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1EVyhkBrnVrVUIDEFfVUXRmyLW1LnBGs3/view?usp=sharing">Sep</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1msFtiZDSNxWqo72advy7kNxijiQA-2m5/view?usp=sharing">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1f_Sr0EgGNSuLqeYaf-c8ufexVPO4-Xf9/view?usp=sharing">Dec</a>
+				</div>
+				<div id="2017" class="year-data" style="display:none;">
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/16FFyTe_RMMKkEJfWXVemWFuQRd4ip1LV/view?usp=sharing">Jan</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Feb</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/182upLNazzDId4RhnjAGcBy_HJ9ftXX51/view?usp=sharing">Mar</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Apr</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1cJYZ0hZs8LE5YrIfrppgfTJPKn6Ws5rN/view?usp=sharing">May</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1ZssZJBHazqgOBSV5X22tnBF_SwKKzf4i/view?usp=sharing">Jun</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Jul</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1_tv8zdTnxehn0Pir5rzThfTvzlfTjL80/view?usp=sharing">Aug</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Sep</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/1Pi-30Tdmudd5ZjlmnbRs4asoYTqwzWvQ/view?usp=sharing">Oct</a>
+						<a id="content" target="_blank" style="background-color: #2c2c2c; color: #FFFFFF;">Nov</a>
+						<a id="content" target="_blank" href="https://drive.google.com/file/d/10TXrn0UfqrL1QqkipRTkV1A-mmJe7bp_/view?usp=sharing">Dec</a>
+				</div>
+			</div>
+		</div>
+		<img src="/Images/Nav/Border_Chuff.JPG" style="max-width: 100%">
 	</body>
+	<script src="/Scripts/Darkmode.js"></script>
+	<script>
+		function updateContent() {
+            const selectedYear = document.getElementById("yearSelector").value;
+            document.querySelectorAll(".year-data").forEach(div => {
+                div.style.display = (div.id === selectedYear) ? "block" : "none";
+            });
+        }
+		document.addEventListener("DOMContentLoaded", function() {
+			const selectedYear = document.getElementById("yearSelector").value;
+            document.querySelectorAll(".year-data").forEach(div => {
+                div.style.display = (div.id === selectedYear) ? "block" : "none";
+            });
+		});
+	</script>
+	<script src="/Scripts/tooltipCommittee.js"></script>
 </html>
