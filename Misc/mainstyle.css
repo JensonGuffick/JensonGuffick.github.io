@@ -158,14 +158,19 @@ body {
     width: 150px;
     height: 50px;
     background-color: black;
-    border-radius: 10px;
+    border-radius: 60px;
     border: solid;
     border-width: 2px;
     color: white;
+    transition: background-color 0.1s ease;
+    transition: color 0.5s ease;
+    transition: border-color 0.5s ease;
   }
 
   .sheet-down:hover {
     background-color: #f8c301;
+    cursor: pointer;
+    color: #000000;
   }
   
   .InfoBox {
@@ -235,4 +240,7 @@ body {
   .BookingsButton:hover {
     background-color: #f8c301;
     cursor: pointer;
+  }
+  .committee-email {
+    color: black;
   }
