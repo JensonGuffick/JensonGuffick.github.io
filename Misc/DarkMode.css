@@ -56,3 +56,13 @@
 			    border: 1px solid #ccc;
 			    background-color: #f9f9f9;
 			}
+			body.dark-mode .BookingsButton {
+			    background-color: #313131;
+				color: white;
+			}
+			body.dark-mode .BookingsButton:hover {
+			    background-color: #f8c301;
+				color: #000000;
+				border-color: #000000;
+			}
+			

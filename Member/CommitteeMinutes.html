@@ -5,199 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Committee Minutes - LPB</title>
 		<link rel="stylesheet" href="/Misc/DarkMode.css">
-		<style>
-			body {
-				display: none;
-				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-				margin: 0;
-				padding: 0;
-				text-align: center;
-				text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-				transition: background-color 1s, color 0.5s;
-			}
-
-			.headertext {
-				font-size: 3em;
-				font-weight: bold;
-				margin: 20px;
-			}
-
-			.subheadertext {
-				font-size: 2em;
-				font-weight: bold;
-				margin: 20px;
-			}
-
-			.Header {
-				border-radius: 20px;
-				padding: 10px;
-			}
-
-			.Buttons {
-				background-color: #e6e6e6;
-				border-radius: 20px;
-			}
-
-			.container {
-				margin: auto;
-				padding: 20px;
-			}
-
-			.nav-buttons {
-				width: 149px;
-				height: 49px;
-				background-color: black;
-				color: white;
-				border: 2px solid #f8c301;
-				border-radius: 10px;
-				margin: 10px;
-				cursor: pointer;
-				font-weight: bold;
-			}
-
-			.nav-buttons:hover {
-				background-color: #f8c301;
-				border-color: black;
-				color: black;
-			}
-
-			.selected-nav-buttons {
-				width: 149px;
-				height: 49px;
-				background-color: #c49900;
-				color: white;
-				border: 2px solid #000000;
-				border-radius: 10px;
-				margin: 10px;
-				cursor: pointer;
-				font-weight: bold;
-				color: black;
-			}
-
-			.selected-nav-buttons:hover {
-				background-color: #000000;
-				border-color: #ff6c6c;
-				color: white;
-			}
-
-			.committee-title {
-				font-size: 2em;
-				margin: 40px 0 20px;
-				font-weight: bold;
-			}
-
-			table {
-				width: 100%;
-				max-width: 900px;
-				margin: auto;
-				font-size: 1em;
-			}
-
-			td {
-				border: 2px solid #666666;
-				padding: 20px;
-				text-align: center;
-				vertical-align: middle;
-				font-size: 1.2em;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-			}
-
-			.Photo {
-				width: 1080px;
-				height: 1920px;
-				max-width: 150px;
-				height: auto;
-				border: 1px solid #000;
-				border-radius: 12px;
-				transition: max-width 0.3s ease;
-				box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-			}
-
-			.Photo:hover {
-				max-width: 180px;
-			}
-
-			.contact-img {
-				width: 250px;
-				height: 30px;
-			}
-
-			@media (max-width: 768px) {
-				.headertext {
-					font-size: 2em;
-				}
-
-				.nav-buttons {
-					width: 45%;
-					margin: 5px 0;
-				}
-
-				td {
-					display: block;
-					width: 90%;
-					text-align: center;
-				}
-			}
-
-			.contact-button {
-				background-color: #000000;
-				color: #FFFFFF;
-				border: #f8c301;
-				border-radius: 20px;
-				height: 40px;
-				width: 100%;
-				transition: background-color 0.3s ease;
-			}
-
-			.contact-button:hover {
-				background-color: #ffc800;
-				color: #000000;
-				cursor: pointer;
-			}
-
-			.selectorlabel {
-				font-size: 2em;
-				font-weight: bold;
-			}
-			.selectorbox {
-				font-size: 2em;
-				font-weight: bold;
-			}
-			.year-data a {
-				color: black;
-				font-size: 2em;
-				padding: 8px;
-    			height: 40px;
-    			width: 40px;
-				background-color: #f8c301;
-				border-radius: 20px;
-				margin: 4px;
-			}
-
-			@media (max-width: 600px) {
-				.year-data a {
-					font-size: 1.2em;
-					height: 25px;
-					width: 25px;
-					padding: 2px;
-					margin: 2px;
-				}
-			}
-
-			#tooltip-box {
-				position: absolute;
-				padding: 8px;
-				background-color: #f8c301;
-				color: black;
-				font-size: 1em;
-				border-radius: 4px;
-				display: none;
-				z-index: 1000;
-			}
-		</style>
+		<link rel="stylesheet" href="/Misc/MainStyle.css">
+		<script src="/Scripts/PasswordLocker.js"></script>
 	</head>
 	<body>
-		<div class="container">
+	<div class="container">
 			<div class="Header">
 				<div class="headertext">LIZARD PENINSULA BOWMEN</div>
 				<div class="Buttons">
@@ -230,7 +42,6 @@
 			<div class="MainContent">
 				<label class="selectorlabel" for="yearSelector">Select the year: </label>
 				<select class="selectorbox" id="yearSelector" onchange="updateContent()">
-					<option value="2017">2017</option>
 					<option value="default">Select a year</option>
 					<option value="2024">2024</option>
 					<option value="2023">2023</option>
@@ -359,7 +170,7 @@
 				</div>
 			</div>
 		</div>
-		<img src="/Images/Nav/Border_Chuff.JPG" style="max-width: 100%">
+		<img src="/Images/Nav/Border_Chuff.jpg" style="max-width: 100%;">
 	</body>
 	<script src="/Scripts/Darkmode.js"></script>
 	<script>
