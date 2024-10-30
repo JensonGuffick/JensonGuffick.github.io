@@ -1,0 +1,55 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    font-size: 2em;
+    text-align: center;
+    display: grid;
+}
+
+input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 280px;
+    font-size: 1em;
+    box-shadow: 0 0 10px #000000;
+}
+
+.Cancelbutton {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    text-align: center;
+    border: 1px solid #ffffff;
+    background-color: #121212;
+    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.input-window {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    z-index: 1000;
+}
+
+.input-window form {
+    position: absolute;
+    background-color: #f8c301;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-style: solid;
+    border-radius: 30px;
+}

@@ -21,7 +21,7 @@ function checkLogin() {
 
     if (!loggedIn) {
         console.log('No Users logged in, Redirecting.');
-        window.location.href = '/auth/memberslogin.html';
+        window.location.href = '/auth/LoginSelector.html';
     }
 }
 

@@ -154,7 +154,7 @@ body {
     }
   }
 
-  .sheet-down {
+  .roundedbutton {
     width: 150px;
     height: 50px;
     background-color: black;
@@ -167,7 +167,7 @@ body {
     transition: border-color 0.5s ease;
   }
 
-  .sheet-down:hover {
+  .roundedbutton:hover {
     background-color: #f8c301;
     cursor: pointer;
     color: #000000;
